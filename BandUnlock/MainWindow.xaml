@@ -1,39 +1,70 @@
-﻿<Window x:Class="BandUnlock.MainWindow"
+<Window x:Class="BandUnlock.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BandUnlock"
         mc:Ignorable="d"
-        Title="BandUnlock v0.1.0
-        " Height="450" Width="800">
-    <Grid>
-        <Grid Background="#F5F5F5">
+        Title="BandUnlock v0.2.0"
+        Height="450" Width="800">
+    <Grid Background="#F5F5F5">
 
-            <StackPanel
-        VerticalAlignment="Center"
-        HorizontalAlignment="Center">
+        <StackPanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            x:Name="MainPanel">
 
-                <TextBlock
-            Text="BandUnlock"
-            FontSize="30"
-            FontWeight="Bold"
-            HorizontalAlignment="Center"/>
+            <TextBlock
+                Text="BandUnlock"
+                FontSize="30"
+                FontWeight="Bold"
+                HorizontalAlignment="Center"/>
 
-                <TextBlock
-            Margin="0,10,0,0"
-            Text="Windows Smart Band Unlock"
-            FontSize="16"
-            HorizontalAlignment="Center"/>
+            <TextBlock
+                Margin="0,10,0,0"
+                Text="Windows Smart Band Unlock"
+                FontSize="16"
+                HorizontalAlignment="Center"/>
 
-                <Button
-            Margin="0,30,0,0"
-            Width="180"
-            Height="40"
-            Content="扫描附近设备"/>
+            <!-- 状态文本 -->
+            <TextBlock
+                x:Name="StatusText"
+                Margin="0,20,0,0"
+                FontSize="14"
+                HorizontalAlignment="Center"
+                Foreground="#666666"
+                Text="检查绑定状态..."/>
 
-            </StackPanel>
+            <!-- 绑定按钮 -->
+            <Button
+                x:Name="BindButton"
+                Margin="0,20,0,0"
+                Width="180"
+                Height="40"
+                Content="绑定手环"
+                Click="BindButton_Click"/>
 
-        </Grid>
+            <!-- 解绑按钮 -->
+            <Button
+                x:Name="UnbindButton"
+                Margin="0,10,0,0"
+                Width="180"
+                Height="40"
+                Content="解除绑定"
+                Click="UnbindButton_Click"
+                Visibility="Collapsed"/>
+
+            <!-- 停止绑定按钮（绑定扫描模式下显示） -->
+            <Button
+                x:Name="StopBindButton"
+                Margin="0,10,0,0"
+                Width="180"
+                Height="40"
+                Content="停止扫描"
+                Click="StopBindButton_Click"
+                Visibility="Collapsed"/>
+
+        </StackPanel>
+
     </Grid>
 </Window>
